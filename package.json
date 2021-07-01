@@ -1,0 +1,25 @@
+{
+  "name": "wavedash",
+  "version": "0.0.1",
+  "description": "Lightweight VCD Viewer for Javascript",
+  "keywords": [
+    "vcd"
+  ],
+  "author": "Mohamed Gaber",
+  "license": "MIT",
+  "dependencies": {
+    "@svgdotjs/svg.js": "^3.0.16",
+    "vcd-parser": "^1.0.1"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^15.0.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "rollup": "^2.26.10",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "type": "module"
+}
