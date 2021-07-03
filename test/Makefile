@@ -9,8 +9,8 @@ test.vcd: test.out
 test.json: test.vcd
 	node ./vcd2json.js
 
-index.html: test.json ../lib/svg.js
-	node render.js
+index.html: test.json ../lib/svg.js ./render.js
+	node ./render.js
 
 .PHONY: clean
 clean:

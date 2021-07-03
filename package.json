@@ -6,7 +6,7 @@
     "vcd"
   ],
   "author": "Mohamed Gaber",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
     "@svgdotjs/svg.js": "^3.0.16",
     "vcd-parser": "^1.0.1"

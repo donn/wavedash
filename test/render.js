@@ -22,6 +22,10 @@ async function main() {
                 #vcd > td {
                     width: 50%;
                 }
+
+                #vcd > tr {
+                    height: 40px;
+                }
             </style>
         </head>
         <body>
