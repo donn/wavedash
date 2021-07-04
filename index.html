@@ -6,7 +6,7 @@
     <body>
         <div id="wavedash"></div>
         <script src="./dist/wavedash.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
         <script type="text/javascript">
             axios.get("./test/test.vcd").then(res=> {
                 let wavedashObject = new Wavedash("wavedash", res.data);

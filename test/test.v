@@ -20,6 +20,9 @@ initial begin
         end
         a += 4.0;
         c = $random;
+        if (z % 13 == 0) begin
+            c[1] = 1'bz;
+        end
         #20;
     end
     $finish;

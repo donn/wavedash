@@ -8,7 +8,6 @@
   "author": "Mohamed Gaber",
   "license": "Apache-2.0",
   "dependencies": {
-    "@svgdotjs/svg.js": "^3.0.16",
     "cloudv-vcd-parser": "https://github.com/Cloud-V/vcd-parser#1.1.0"
   },
   "scripts": {
