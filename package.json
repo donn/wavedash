@@ -9,7 +9,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@svgdotjs/svg.js": "^3.0.16",
-    "vcd-parser": "^1.0.1"
+    "cloudv-vcd-parser": "https://github.com/Cloud-V/vcd-parser#1.1.0"
   },
   "scripts": {
     "build": "rollup -c",
@@ -19,7 +19,11 @@
     "@rollup/plugin-commonjs": "^15.0.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
     "rollup": "^2.26.10",
+    "rollup-plugin-import-css": "^2.0.1",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-serve": "^1.1.0",
     "rollup-plugin-terser": "^7.0.2"
   },
-  "type": "module"
+  "type": "module",
+  "main": "lib/wavedash.js"
 }

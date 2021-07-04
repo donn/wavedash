@@ -1,6 +1,10 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
+import serve from 'rollup-plugin-serve';
+import livereload from 'rollup-plugin-livereload';
+import css from "rollup-plugin-import-css";
+
 
 // `npm run build` -> `production` is true
 // `npm run dev` -> `production` is false
@@ -24,6 +28,9 @@ export default {
         }
     },
     plugins: [
+        css(),
+        serve(), // index.html should be in root of project
+        livereload(),
         resolve(), 
         commonjs(),
         production && terser()

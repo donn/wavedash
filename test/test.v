@@ -12,9 +12,13 @@ initial begin
     b = 0;
     c = 0;
     #20;
-    for (z = 0; z < 99; z += 1) begin
+    for (z = 1; z < 99; z += 1) begin
+        if (z % 7 == 0) begin
+            b = 1'bx;
+        end else begin
+            b = $random;
+        end
         a += 4.0;
-        b = $random;
         c = $random;
         #20;
     end
