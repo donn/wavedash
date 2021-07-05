@@ -1,20 +1,11 @@
 <html>
     <head>
         <title>Wavedash Test</title>
-        <link rel="stylesheet" href="./dist/wavedash.css" />
+        <link rel="stylesheet" href="./app-dist/app.css" />
     </head>
     <body>
-        <div id="wavedash"></div>
-        <script src="./dist/wavedash.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-        <script type="text/javascript">
-            axios.get("./test/test.vcd").then(res=> {
-                let wavedashObject = new Wavedash("wavedash", res.data);
-                wavedashObject.attach().then(res=> {
-                    console.log("Waveform attached.")
-                })
-            });
-        </script>
+        <div id="app"></div>
+        <script src="./app-dist/app.js"></script>
     </body>
 
 </html>

@@ -4,6 +4,8 @@ import { terser } from 'rollup-plugin-terser';
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
 import css from "rollup-plugin-import-css";
+import json from "rollup-plugin-json";
+import nodepf from "rollup-plugin-node-polyfills";
 
 
 // `npm run build` -> `production` is true
@@ -16,9 +18,9 @@ export default {
         "jsdom/lib/jsdom/living/generated/utils",
         "jsdom/lib/jsdom/utils"
     ],
-    input: 'lib/wavedash.js',
+    input: 'src/app.js',
     output: {
-        file: 'dist/wavedash.js',
+        file: 'app-dist/app.js',
         format: 'iife',
         sourcemap: true,
         globals: {
@@ -28,11 +30,13 @@ export default {
         }
     },
     plugins: [
-        css(),
-        serve(), // index.html should be in root of project
+        serve(),
         livereload(),
-        resolve(), 
+        css(),
+        json(),
+        resolve({ browser: true }), 
         commonjs(),
-        production && terser()
+        nodepf(),
+        production && terser(),
     ]
 };

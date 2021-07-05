@@ -12,3 +12,9 @@ table.wavedash > tr {
 div.wavedash_cell {
     padding: 1em 0.5em 1em 0.5em;
 }
+
+table.wavedash th {
+    left: 0px;
+    position: sticky;
+    background-color: black;
+}
