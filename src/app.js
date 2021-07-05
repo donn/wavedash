@@ -15,25 +15,30 @@ const query = location.search.slice(1).split("&").filter(p=> p).reduce(
     }, {}
 );
 
-window.currentFile = null;
+window.vcd = null;
+window.setTitle = function(file) {
+    document.title = `${file} - Wavedash`;
+}
 window.load = async function() {
-    if (!window.currentFile) {
+    if (!window.vcd) {
         return;
     }
-    const reader = new FileReader();
-    reader.onload = ((data)=> {
-        let base64 = data.currentTarget.result.split(',')[1];
-        let decoded = atob(base64);
-        let wd = new Wavedash(WAVEDASH_ID, decoded);
-        wd.attach();
-    });
-    reader.readAsDataURL(window.currentFile);
+    let wd = new Wavedash(WAVEDASH_ID, window.vcd);
+    wd.attach();
 }
+
 window.fakeInput = n("input", e=> {
     e.type = "file";
     e.onchange = (ev) => {
         window.currentFile = e.files[0];
-        load();
+        const reader = new FileReader();
+        reader.onload = ((data)=> {
+            let base64 = data.currentTarget.result.split(',')[1];
+            let decoded = atob(base64);
+            window.vcd = decoded;
+            load();
+        });
+        reader.readAsDataURL(window.currentFile);
     }
     e.accept = ".vcd"
 }) ;
@@ -56,23 +61,26 @@ async function main() {
             }
         }))
 
-        e.appendChild(n("button", e=> {
-            e.innerHTML = "Reload";
-            e.onclick = () => {
-                load();
-            }
-        }));
+        // e.appendChild(n("button", e=> {
+        //     e.innerHTML = "Reload";
+        //     e.onclick = () => {
+        //         load();
+        //     }
+        // }));
     });
     app.appendChild(topBar);
 
     app.appendChild(n("div", e=> {
         e.id = WAVEDASH_ID;
+        e.appendChild(n("h4", e=> {
+            e.innerHTML = "No waveform loaded.";
+            e.style = "margin-left: 1em;";
+        }));
     }));
 
     if (query["load_url"]) {
         let res = await axios(query["load_url"]);
-        let wd = new Wavedash(WAVEDASH_ID, res.data);
-        wd.attach();
+        window.vcd = res.data;
     }
     
 }

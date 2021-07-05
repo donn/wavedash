@@ -1,7 +1,7 @@
 {
   "name": "wavedash",
   "version": "0.0.1",
-  "description": "Lightweight VCD Viewer for Javascript",
+  "description": "SVG-based Waveform Viewer",
   "keywords": [
     "vcd"
   ],
@@ -9,13 +9,11 @@
   "license": "Apache-2.0",
   "dependencies": {
     "axios": "^0.21.1",
-    "cloudv-vcd-parser": "https://github.com/Cloud-V/vcd-parser#1.1.0",
-    "create-element-x": "^1.2.0"
+    "cloudv-vcd-parser": "https://github.com/Cloud-V/vcd-parser#1.1.0"
   },
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-
     "el-dev": "nodemon --ext .js,.mjs,.cjs,.css --ignore dist/ --ignore app-dist/ --exec sh -c \"yarn build && electron electron.cjs\""
   },
   "devDependencies": {

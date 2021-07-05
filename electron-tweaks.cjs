@@ -12,6 +12,9 @@ function tweaks() {
             display: none;
         }
         */
+       .topbar {
+           display: none;
+       }
     `;
     if (macOS) {
         // Account for inset toolbar
@@ -26,12 +29,11 @@ function tweaks() {
 
 }
 
-ipcRenderer.on("reload-pressed", ()=> {
+ipcRenderer.on("update-vcd", (ev, vcd)=> {
+    let { name, value } = vcd;
+    window.setTitle(name);
+    window.vcd = value;
     window.load();
-})
-
-ipcRenderer.on("open-pressed", ()=> {
-    window.fakeInput.click();
 })
 
 window.addEventListener('DOMContentLoaded', tweaks);

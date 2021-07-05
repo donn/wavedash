@@ -380,11 +380,6 @@ core-util-is@~1.0.0:
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
 
-create-element-x@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/create-element-x/-/create-element-x-1.2.0.tgz#b76aa83c445f936181c937caf32467060fc90169"
-  integrity sha512-8kSME7X8tzdQnLFYgUaFZ62CzXnMzFIY01XaXhxgW9JaW4q/VxU0T3I06CeUOcJJdsvLZNkJh4g+yE3AQDLhRg==
-
 crypto-random-string@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-2.0.0.tgz#ef2a7a966ec11083388369baa02ebead229b30d5"
