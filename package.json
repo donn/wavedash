@@ -14,11 +14,15 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "dev": "rollup -c -w"
+    "dev": "rollup -c -w",
+
+    "el-dev": "nodemon --ext .js,.mjs,.cjs,.css --ignore dist/ --ignore app-dist/ --exec sh -c \"yarn build && electron electron.cjs\""
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^15.0.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
+    "electron": "^13.1.5",
+    "nodemon": "^2.0.9",
     "rollup": "^2.26.10",
     "rollup-plugin-import-css": "^2.0.1",
     "rollup-plugin-json": "^4.0.0",

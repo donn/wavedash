@@ -30,8 +30,8 @@ export default {
         }
     },
     plugins: [
-        serve(),
-        livereload(),
+        !production && serve(),
+        !production && livereload(),
         css(),
         json(),
         resolve({ browser: true }), 
