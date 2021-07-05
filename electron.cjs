@@ -1,5 +1,9 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require("electron");
+const electron = require("electron");
+const { app, BrowserWindow, Menu } = electron;
+
+const macOS = process.platform == "darwin";
+
 const path = require("path");
 
 function createWindow () {
@@ -9,11 +13,72 @@ function createWindow () {
     width: 800,
     height: 600,
     webPreferences: {
+      preload: path.join(__dirname, 'preload.cjs'),
+      contextIsolation: false
     }
   });
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'))
+
+
+  if (macOS) {
+    const { TouchBar } = electron;
+    const { TouchBarButton } = TouchBar;
+
+    const touchBar = new TouchBar({
+      items: [
+        // new TouchBarButton({
+        //   label: "📂",
+        //   click: ()=> {
+        //     mainWindow.webContents.send("open-pressed", "");
+        //   }
+        // }),
+        new TouchBarButton({
+          label: "↻",
+          click: ()=> {
+            mainWindow.webContents.send("reload-pressed", "");
+          }
+        })
+      ]
+    });
+
+    mainWindow.setTouchBar(touchBar);
+  }
+
+  let items = [
+    { role: 'appMenu' },
+    {
+      label: 'File',
+      submenu: [
+        {
+          type: "normal",
+          label: 'Open',
+          click: () => mainWindow.webContents.send("open-pressed", ""),
+          accelerator: "CommandOrControl+O"
+        },
+        macOS ? { role: 'close' } : { role: 'quit' }
+      ]
+    },
+    { role: 'editMenu' },
+    { role: 'viewMenu' },
+    { role: 'windowMenu' },
+    {
+      role: 'help',
+      submenu: [
+        {
+          label: 'Learn More',
+          click: async () => {
+            const { shell } = electron;
+            await shell.openExternal('https://electronjs.org')
+          }
+        }
+      ]
+    }
+  ];
+
+  const menu = Menu.buildFromTemplate(items);
+  Menu.setApplicationMenu(menu);
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -36,7 +101,7 @@ app.whenReady().then(() => {
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', function () {
-  if (process.platform !== 'darwin') app.quit()
+  if (!macOS) app.quit()
 })
 
 // In this file you can include the rest of your app's specific main process

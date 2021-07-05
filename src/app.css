@@ -25,7 +25,6 @@ body {
     align-self: center;
     vertical-align: middle;
     width: 100%;
-    margin-left: 64px;
 }
 
 .topbar > button {
@@ -44,9 +43,4 @@ body {
 #wavedash {
     max-width: 100%;
     overflow-x: scroll;
-    transform: rotateX(180deg);
-}
-
-#wavedash > * {
-    transform: rotateX(180deg);
 }
