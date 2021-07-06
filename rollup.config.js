@@ -7,10 +7,8 @@ import css from "rollup-plugin-import-css";
 import json from "rollup-plugin-json";
 import nodepf from "rollup-plugin-node-polyfills";
 
-
-// `npm run build` -> `production` is true
-// `npm run dev` -> `production` is false
-const production = !process.env.ROLLUP_WATCH;
+const production = process.env.NODE_ENV == "production";
+const watching = process.env.ROLLUP_WATCH;
 
 export default {
     external: [
@@ -30,8 +28,8 @@ export default {
         }
     },
     plugins: [
-        !production && serve(),
-        !production && livereload(),
+        watching && serve(),
+        watching && livereload(),
         css(),
         json(),
         resolve({ browser: true }), 
