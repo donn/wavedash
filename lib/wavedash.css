@@ -1,6 +1,5 @@
 table.wavedash {
     color: white;
-    background-color: black;
     font-family: monospace;
     border-collapse: collapse;
 }
@@ -11,6 +10,8 @@ table.wavedash > tr {
 
 div.wavedash_cell {
     padding: 1em 0.5em 1em 0.5em;
+    text-align: center;
+    white-space: nowrap;
 }
 
 th.header {

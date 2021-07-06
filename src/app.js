@@ -50,7 +50,7 @@ async function main() {
     let topBar = n("div", e=> {
         e.className = "topbar";
         e.appendChild(n("h4", e=> {
-            e.innerHTML = "Wavedash!";
+            e.innerHTML = "Wavedash";
         }));
 
         e.appendChild(n("button", e=> {
