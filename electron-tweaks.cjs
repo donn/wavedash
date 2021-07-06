@@ -34,6 +34,23 @@ ipcRenderer.on("update-vcd", (ev, vcd)=> {
     window.setTitle(name);
     window.vcd = value;
     window.load();
-})
+});
+
+ipcRenderer.on("zoom", (ev, action)=> {
+    if (!window.wd) {
+        return;
+    }
+    switch (action) {
+        case "in":
+            window.wd.zoomIn();
+            break;
+        case "out":
+            window.wd.zoomOut();
+            break;
+        case "reset":
+            window.wd.resetZoom();
+            break;
+    }
+});
 
 window.addEventListener('DOMContentLoaded', tweaks);

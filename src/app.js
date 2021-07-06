@@ -19,12 +19,13 @@ window.vcd = null;
 window.setTitle = function(file) {
     document.title = `${file} - Wavedash`;
 }
+window.wd = null;
 window.load = async function() {
     if (!window.vcd) {
         return;
     }
-    let wd = new Wavedash(WAVEDASH_ID, window.vcd);
-    wd.attach();
+    window.wd = new Wavedash(WAVEDASH_ID, window.vcd);
+    window.wd.render();
 }
 
 window.fakeInput = n("input", e=> {
@@ -52,6 +53,30 @@ async function main() {
         e.appendChild(n("h4", e=> {
             e.innerHTML = "Wavedash";
         }));
+
+        e.appendChild(n("button", e=> {
+            e.innerHTML = "0";
+            
+            e.onclick = () => {
+                window.wd.resetZoom();
+            }
+        }))
+
+        e.appendChild(n("button", e=> {
+            e.innerHTML = "+";
+            
+            e.onclick = () => {
+                window.wd.zoomIn();
+            }
+        }))
+
+        e.appendChild(n("button", e=> {
+            e.innerHTML = "-";
+            
+            e.onclick = () => {
+                window.wd.zoomOut();
+            }
+        }))
 
         e.appendChild(n("button", e=> {
             e.innerHTML = "Open";

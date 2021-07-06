@@ -103,14 +103,39 @@ function createWindow() {
         {
             label: 'View',
             submenu: [
-              { role: 'forceReload' },
-              { role: 'toggleDevTools' },
-              { type: 'separator' },
-              { role: 'resetZoom' },
-              { role: 'zoomIn' },
-              { role: 'zoomOut' },
-              { type: 'separator' },
-              { role: 'togglefullscreen' }
+                {
+                        type: "normal",
+                        label: 'Reset Zoom (Time)',
+                        accelerator: "CommandOrControl+/",
+                        click: async () => {
+                            mainWindow.webContents.send("zoom", "reset");
+                        }
+                },
+                {
+                        type: "normal",
+                        label: 'Zoom In (Time)',
+                        accelerator: "CommandOrControl+.",
+                        click: async () => {
+                            mainWindow.webContents.send("zoom", "in");
+                        }
+                },
+                {
+                        type: "normal",
+                        label: 'Zoom Out (Time)',
+                        accelerator: "CommandOrControl+,",
+                        click: async () => {
+                            mainWindow.webContents.send("zoom", "out");
+                        }
+                },
+                { type: 'separator' },
+                { role: 'forceReload' },
+                { role: 'toggleDevTools' },
+                { type: 'separator' },
+                { role: 'resetZoom' },
+                { role: 'zoomIn' },
+                { role: 'zoomOut' },
+                { type: 'separator' },
+                { role: 'togglefullscreen' }
             ]
           },
         {
