@@ -1,17 +1,26 @@
+div.wavedash-container {
+    display: grid;
+}
+
 table.wavedash {
     color: white;
     font-family: monospace;
     border-collapse: collapse;
+    position: relative;
+    grid-row-start: 1;
+    grid-column-start: 1;
 }
 
 table.wavedash > tr {
     border-bottom: solid 1pt gray;
 }
 
-div.wavedash_cell {
-    padding: 1em 0.5em 1em 0.5em;
+div.wavedash-cell {
     text-align: center;
     white-space: nowrap;
+    min-width: 200px;
+    overflow-x: hide;
+    overflow-y: visible;
 }
 
 th.header {
@@ -19,14 +28,22 @@ th.header {
     top: 0px;
     position: sticky;
     background-color: black;
-    z-index: 15;
+    z-index: 20;
 }
 
 th.row-header {
     left: 0px;
     position: sticky;
     background-color: black;
+    z-index: 15;
+}
+
+div.wavedash-cursor {
+    border-left: 1px solid red;
     z-index: 10;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    pointer-events: none;
 }
 
 th.column-header {

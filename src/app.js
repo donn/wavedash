@@ -97,6 +97,7 @@ async function main() {
 
     app.appendChild(n("div", e=> {
         e.id = WAVEDASH_ID;
+        e.style = "max-width: 100%; overflow-x: scroll;"
         e.appendChild(n("h4", e=> {
             e.innerHTML = "No waveform loaded.";
             e.style = "margin-left: 1em;";
