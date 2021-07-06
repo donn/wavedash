@@ -21,9 +21,26 @@ div.wavedash-cell {
     min-width: 200px;
     overflow-x: hide;
     overflow-y: visible;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
-th.header {
+div.wavedash-cell > p.all {
+    grid-column-end: span 2;
+}
+
+
+div.wavedash-cell > p.first {
+    grid-row-start: 1;
+    grid-column-start: 1;
+}
+
+div.wavedash-cell > p.second {
+    grid-row-start: 1;
+    grid-column-start: 2;
+}
+
+th.wavedash-header {
     left: 0px;
     top: 0px;
     position: sticky;
@@ -31,7 +48,7 @@ th.header {
     z-index: 20;
 }
 
-th.row-header {
+th.wavedash-row-header {
     left: 0px;
     position: sticky;
     background-color: black;
@@ -46,7 +63,7 @@ div.wavedash-cursor {
     pointer-events: none;
 }
 
-th.column-header {
+th.wavedash-column-header {
     top: 0px;
     position: sticky;
     z-index: 5;
