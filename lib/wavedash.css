@@ -13,8 +13,24 @@ div.wavedash_cell {
     padding: 1em 0.5em 1em 0.5em;
 }
 
-table.wavedash th {
+th.header {
+    left: 0px;
+    top: 0px;
+    position: sticky;
+    background-color: black;
+    z-index: 15;
+}
+
+th.row-header {
     left: 0px;
     position: sticky;
+    background-color: black;
+    z-index: 10;
+}
+
+th.column-header {
+    top: 0px;
+    position: sticky;
+    z-index: 5;
     background-color: black;
 }

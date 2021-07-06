@@ -81,6 +81,7 @@ async function main() {
     if (query["load_url"]) {
         let res = await axios(query["load_url"]);
         window.vcd = res.data;
+        window.load();
     }
     
 }
