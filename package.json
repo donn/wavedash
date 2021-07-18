@@ -9,7 +9,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "axios": "^0.21.1",
-    "cloudv-vcd-parser": "https://github.com/Cloud-V/vcd-parser#1.1.0"
+    "yawp": "https://github.com/donn/yawp"
   },
   "scripts": {
     "build": "rollup -c",
